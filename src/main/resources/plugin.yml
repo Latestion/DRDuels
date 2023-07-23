@@ -1,0 +1,8 @@
+name: DRDuels
+version: '${version}'
+main: dev.latestion.drduels.LatestDuels
+api-version: '1.19'
+
+commands:
+  duel:
+  stats:
