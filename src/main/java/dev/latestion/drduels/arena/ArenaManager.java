@@ -1,12 +1,17 @@
 package dev.latestion.drduels.arena;
 
 import dev.latestion.drduels.LatestDuels;
+import dev.latestion.drduels.game.Queue;
+import dev.latestion.drduels.kits.Kit;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 
 public class ArenaManager {
@@ -34,6 +39,10 @@ public class ArenaManager {
         two = parse(config.getDouble("player_two_spawn.x"),
                 config.getDouble("player_two_spawn.y"),
                 config.getDouble("player_two_spawn.z"), world);
+
+    }
+
+    public static void handle(Player player, Player p, Kit b) {
 
     }
 

@@ -1,6 +1,8 @@
 package dev.latestion.drduels;
 
 import com.mongodb.client.MongoCollection;
+import dev.latestion.drduels.arena.ArenaManager;
+import dev.latestion.drduels.commands.CommandManager;
 import dev.latestion.drduels.kits.KitManager;
 import dev.latestion.drduels.module.Profile;
 import dev.latestion.drduels.utils.DataManager;
@@ -25,6 +27,7 @@ public final class LatestDuels extends JavaPlugin implements Listener {
 
     @Getter private DataManager kitsData, arenaData;
     @Getter private KitManager kitManager;
+    @Getter private static ArenaManager arenaManager;
 
     private static final Map<UUID, Profile> profile = new HashMap<>();
     private MongoDBManager mongo;
@@ -39,6 +42,7 @@ public final class LatestDuels extends JavaPlugin implements Listener {
         arenaData = new DataManager("arena");
 
         kitManager = new KitManager();
+        arenaManager = new ArenaManager();
 
         mongo = new MongoDBManager();
         loadFromMongo();
@@ -46,6 +50,7 @@ public final class LatestDuels extends JavaPlugin implements Listener {
         PluginManager manager = this.getServer().getPluginManager();
 
         manager.registerEvents(this, this);
+        new CommandManager();
     }
 
     @Override
